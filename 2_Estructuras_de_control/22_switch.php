@@ -45,3 +45,13 @@
     }
 
     //COMPROBAR CON UN SWITCH SI UN NÚMERO ALEATORIO DEL 1 AL 1000 ES PAR O IMPAR
+
+    $num = rand(1,1000);
+
+    switch(true){
+            case $num%2==0:
+                echo "<p>El número $num es par</p>";
+                break;
+            default:
+                echo "<p>El número $num es impar</p>";
+    }
