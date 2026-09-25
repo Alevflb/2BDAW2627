@@ -91,6 +91,36 @@
     echo calcularSuscripcion("basico",0,1);
     
     ?>
+    <h3>Ejercicio 6</h3>
+    <p>Validación de fechas: Crear una función llamada validarFecha() que acepte tres parámetros: el día, el mes y el año. La función devolverá un string informando si la fecha introducida es anterior, posterior o es la fecha actual. Hay que validar que la fecha introducida como parámetros sea correcta.</p>
+    <p>Funciones que tenéis que usar: <br>
+        date(mes, dia, año): pasar a formato date <br>
+        checkdate(mes dia año): comprueba que el formato de la fecha es correcto<br>
+        strtotime(formato date): pasa a segundos la fecha que le metamos como parámetro desde 1970<br>
+        date("Y-m-d"): para sacar la fecha actual en formato date<br>
+    </p>
+    <?php
+        function validarFecha(int $dia, int $mes, int $anio):string{
+            if(!checkdate($mes, $dia, $anio)){
+                return "Fecha no válida<br>";
+            }
+            $fechaIngresada = strtotime("$anio-$mes-$dia");
+            $hoy = strtotime(date("Y-m-d"));
+            $hoyFecha = date("Y-m-d");
+            echo "hoy: $hoyFecha<br>"; //para comprobar que lo hace bien
+            if($fechaIngresada>$hoy){
+                return "Fecha válida y futura<br>";
+            }elseif($fechaIngresada<$hoy){
+                return "Fecha válida y pasada<br>";
+            }else{
+                return "Fecha válida y estamos en hoy<br>";
+            }
+        }
+        echo validarFecha(1,1,2026);
+        echo validarFecha(1,1,2027);
+        echo validarFecha(25,9,2026);
+        echo validarFecha(10,20,2026);
+    ?>
 </body>
 
 </html>
