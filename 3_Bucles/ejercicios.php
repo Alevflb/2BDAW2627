@@ -132,5 +132,67 @@
             <th>Ganancia</th>
         </thead>
     </table>
+    <h3>Ejercicio 12</h3>
+    <p>El cuadrado: Función llamada chungo($n) el tamaño del cuadrado será de nxn y vamos a dibujar la diagonal principal con una "\". El resto de posiciones se dibujarán con un asterisco "*"</p>
+    <?php
+        function chungo($n){
+            for($i=0;$i<$n;$i++){
+                for($j=0;$j<$n;$j++){
+                    if($i==$j && $j==$n-$i-1)    
+                        echo "x ";
+                    elseif($i==$j)
+                        echo "\ ";
+                    elseif($j==$n-$i-1)
+                        echo "/ ";
+                    elseif($j<$n-$i-1 && $i>$j)
+                        echo "+ ";
+                    else 
+                        echo "* ";
+                }
+                echo "<br>";
+            }
+        }
+
+        chungo(15);
+    ?>
+
+    <h3>Ejercicio 13</h3>
+    <p>
+        Para cada entero de 2 a 500, calcula la suma de sus divisores (excluido el propio número). Clasificalo como deficiente si la suma es menor, perfecto si la suma es igual (al número) o abundante si la suma es mayor. CORREGIDO José Antonio
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Suma divisores</th>
+                <th>Clasificación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color: coral;">
+                <td>2</td>
+                <td>1</td>
+                <td>Deficiente</td>
+            </tr>
+            <tr style="background-color: green;">
+                <td>6</td>
+                <td>6</td>
+                <td>Perfecto</td>
+            </tr>
+            <tr style="background-color: blue;">
+                <td>12</td>
+                <td>..</td>
+                <td>Abundante</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Ejercicio 14</h3>
+    <p>
+        Buscar las 5 primeras parejas (p, p+2) en las que ambos números sean primos, examinando desde p = 2 hasta un máximo configurable. Haz una función esPrimo($n) y devuelve un booleano para que compruebe divisores con una condición que termine al encontrar uno; (3,5), (5,7), (11,13), (17,19), (29,31). Corrige Iker.
+    </p>
+    <h3>Ejercicio 15</h3>
+    <p>
+        Crea la función sumaDivisores() y busca parejas distintas entre 200 y 300 tales que la suma de divisores propios (sin incluir el propio número) de cada número sea el otro. Muestra cada pareja solo una vez junto con ambas sumas. Resultado: 220 y 284.
+    </p>
 </body>
 </html>
