@@ -190,9 +190,64 @@
     <p>
         Buscar las 5 primeras parejas (p, p+2) en las que ambos números sean primos, examinando desde p = 2 hasta un máximo configurable. Haz una función esPrimo($n) y devuelve un booleano para que compruebe divisores con una condición que termine al encontrar uno; (3,5), (5,7), (11,13), (17,19), (29,31). Corrige Iker.
     </p>
+    <?php
+
+    function esPrimo(int $n):bool{
+        for($i=2;$i<$n;$i++){
+            if($n%$i == 0) return false;
+        }
+        return true;
+    }
+    
+    // esPrimo(5); => true
+    // esPrimo(90); => false
+    ?>
     <h3>Ejercicio 15</h3>
     <p>
         Crea la función sumaDivisores() y busca parejas distintas entre 200 y 300 tales que la suma de divisores propios (sin incluir el propio número) de cada número sea el otro. Muestra cada pareja solo una vez junto con ambas sumas. Resultado: 220 y 284.
     </p>
+
+    <?php
+    // crear una función llamada cifrasPares($num) le entra un número entero y devuelve el número de cifras pares que tiene ese números
+
+    //cifrasPares(1020) => 3 cifrasPares(1722) => 2
+
+    function cifrasPares($num){
+        $pares = 0;
+        while($num>0){
+            $digito = $num%10; //sacar el dígito de la derecha del num
+
+            if($digito%2 == 0) $pares++;
+            // 122
+            // 12.2
+            // 12
+            $num = intval($num/10);
+
+        }
+        return $pares;
+    }
+
+    // generar 5 randoms del 100 al 9999 y comprobar para cada uno el número de cifras pares que tiene pero además, dependiendo de dicho número, se le concatena al echo final una nota informativa
+
+    /**
+     * si el num de pares es 0 => (ninguno)
+     * si el num de pares es 1 => (pocos)
+     * si el num de pares es 2 => (pocos)
+     * si el num de pares es 3 o mas => (muchos)
+     */
+
+    for($i = 1; $i<=5; $i++){
+        $random = rand(100,9999);
+        $pares = cifrasPares($random);
+        $salida = match($pares){
+            0 => "(ninguno)",
+            1,2 => "(pocos)",
+            default => "(muchos)"
+        };
+        echo "$random: tiene $pares dígitos pares $salida<br>";
+    }
+
+    // 120: tiene 2 dígitos pares (pocos)
+    ?>
 </body>
 </html>

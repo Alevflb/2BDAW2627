@@ -53,6 +53,19 @@
         }
         echo "</ol>";
 
+        // FOREACH: lo vamos a usar para iterar arrays, sobre todo para los arrays asociativos
+        $personas = ["Ana","Paquito","Menganito"];
+
+
+        foreach($personas as $posicion => $valor){
+            echo "Persona ".($posicion+1).": ". $valor."<br>";
+        }
+
+        $deportes = ["baloncesto" => "lebron", "fútbol" => "lacobra", "tenis" => "elcalvo", "MMA" => "nurmagomedov", "boxeo" => "valverde"];
+
+        foreach($deportes as $clave => $goat){
+            echo "El rey del $clave es: $goat<br>";
+        }
     ?>
 </body>
 </html>
