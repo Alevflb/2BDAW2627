@@ -20,18 +20,64 @@
         array_push($biblioteca, "Momo", "Drácula", "La celestina");
         //$biblioteca[] = "Momo";
 
-        $peticiones = ["Dune", "Hamlet"];
+        $peticiones = ["Dune", "Hamlet", "El perfume"];
         
         foreach($peticiones as $titulo){
             if(in_array($titulo, $biblioteca)){  //in_array lo uso para saber si está
-                $posicion = array_search($titulo, $biblioteca); //en el caso en el que esté, saco su posición
-                unset($biblioteca[$posicion]);
-                echo "Prestado: $titulo";
+                for($i = 0; $i<count($biblioteca); $i++){
+                    if($titulo == $biblioteca[$i]){
+                        unset($biblioteca[$i]);
+                        echo "Prestado: $titulo";
+                    }
+                }
+                // $posicion = array_search($titulo, $biblioteca); //en el caso en el que esté, saco su posición
+                // unset($biblioteca[$posicion]);
+                // echo "Prestado: $titulo";
             }else{
                 echo "No disponible";
             }
         }
+        echo "<pre>";print_r($biblioteca);echo "</pre>";
         $biblioteca = array_values($biblioteca); //para "arreglar" el array con las posiciones ordenadas
+        echo "<pre>";print_r($biblioteca);echo "</pre>";
+
+
+        echo "<ol>";
+        for($i=0;$i<count($biblioteca);$i++){
+            echo "<li>".$biblioteca[$i]."</li>";
+        }
+        echo "</ol>";
+
+        function unirConComas($array):string{
+            $solucion = "";
+            $primero = true;
+            foreach($array as $elemento){
+                if($primero){
+                    $solucion .= $elemento;
+                    $primero = false;
+                }else{
+                    $solucion .= ", ".$elemento;
+                }
+                
+            }
+            return $solucion;
+        }
+
+        echo unirConComas($biblioteca);
+        $copia = $biblioteca;
+        rsort($copia);
+        echo "<pre>";print_r($copia);echo "</pre>";
+        echo unirConComas($copia);
     ?>
+    <h3>Ejercicio 2</h3>
+    <p>
+        Una tienda informática que guarda su stock en un array asociativo producto->unidades:
+            teclado 12, raton 0, monitor 5, webcam 3, altavoz 0.
+    </p>
+    <ul>
+        <li>Crear el array asociativo con el stock original</li>
+        <li>Crear una función llamda estadoStock(unidades), que devuelva "Agotado" (0), "Pocas unidades" (1 a 3) y "Disponible" (más de 3)</li>
+        <li>Llega un pedido de reposición: 10 ratones, 2 webcams, 7 micrófono. Suma las cantidades a los productos existentes. Si el producto no existía, añadirlo al array del stock de la tienda e indícalo con un echo.</li>
+    </ul>
 </body>
 </html>
