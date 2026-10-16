@@ -60,8 +60,8 @@
 
 
         $personas = [
-            "Ana" => ["dni" => "12341234A", "edad" => 50],
             "Paco" => ["dni" => "12341234B", "edad" => 67],
+            "Ana" => ["dni" => "12341234A", "edad" => 50],
             "Sofía" => ["dni" => "12341234C", "edad" => 18]
         ];
 
@@ -72,6 +72,9 @@
             }
         }
 
+        $copia = $personas;
+        ksort($copia);
+        echo "<pre>";print_r($copia);echo "</pre>";
     ?>
 </body>
 </html>
