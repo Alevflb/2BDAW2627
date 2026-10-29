@@ -9,13 +9,24 @@
     <h3>Ejercicio 1</h3>
     <p>Introduce dos listas de números y realiza operaciones entre ellas: unión, intersección y las diferencias</p>
     <form action="soluciones.php" method="post">
-        <label for="">Primer array:</label>
-        <input type="text" name="array1" id="">
+        <input type="hidden" name="ejercicios" value="ej1">
+        <input type="text" name="con1" id="" required><input type="text" name="con2" id="" required>
+        <input type="submit" value="Enviar">
     </form>
 
     <h3>Ejercicio 2</h3>
     <p>Genera un array de números aleatorios y filtra según un criterio específico</p>
     <form action="soluciones.php" method="post">
+        <input type="hidden" name="ejercicios" value="ej2">
+        <label for="numeros">Números: <input type="number" name="numeros" id="numeros"></label><br>
+        <label for="min">Valor min: <input type="number" name="min" id="min"></label><br>
+        <label for="max">Valor max: <input type="number" name="max" id="max"></label><br>
+        <select name="filtro">
+            <option disabled selected>--FILTRO--</option>
+            <option value="pares">Pares</option>
+            <option value="primos">Primos</option>
+            <option value="perfectos">Perfectos</option>
+        </select>
         <!-- 
         4 CAMPOS:   1 => cantidad de números aleatorios que voy a generar
                     2 => valor mínimo que puede tener los números random
@@ -23,6 +34,7 @@
                     4 => filtro (numeros pares || números primos || números perfectos)
         Me devolverá el array original y el array con el filtro aplicado
         -->
+        <input type="submit" value="ENVIAR">
     </form>
 </body>
 </html>
