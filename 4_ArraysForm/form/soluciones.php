@@ -39,12 +39,44 @@
     }
     print_r($_POST);
      //controlar que se haga este codigo solo si se pulsa el boton del segundo form
-    if(isset($_POST["ejercicios"]) && $_POST["ejercicios"] == "ej2"){
+    if(isset($_POST["ejercicios"]) && $_POST["ejercicios"] == "ej2" && isset($_POST["filtro"])){
         $numeros = $_POST["numeros"];
         $min = $_POST["min"];
         $max = $_POST["max"];
         $filtro = $_POST["filtro"];   
-        echo "hola";
+        
+        $array = [];
+        for($i = 0; $i < $numeros; $i++){
+            $array[] = rand($min, $max);
+        }
+
+        $solucion = [];
+
+        // foreach fuera y switch dentro
+        foreach($array as $num){
+            switch($filtro){
+                case "pares":
+                    if($num % 2 == 0) $solucion[] = $num;
+                    break;
+                case "primos":
+                    $esPrimo = true;
+                    for($i = 2; $i<$num; $i++){
+                        if($num % $i == 0) $esPrimo = false;
+                    }
+                    if($esPrimo) $solucion[] = $num;
+                    break;
+                case "perfectos":
+                    $acumDivisores = 0;
+                    for($i = 1; $i<$num; $i++){
+                        if($num % $i == 0) $acumDivisores+=$i;
+                    }
+                    if($num == $acumDivisores) $solucion[] = $num;
+                    break;
+                default:
+                    echo "<h1>VIVA LA VIDA</h1>";
+            }
+        }
+        echo "<pre>"; print_r($solucion); echo "</pre>";
     } 
 
     }
