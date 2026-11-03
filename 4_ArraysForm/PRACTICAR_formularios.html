@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Conversor de unidades de longitud</h3>
+    <p>Crear un formulario con:  un campo de texto que recoja la longitud. Una lista desplegable que indique el la unidad de longitud de origen. Un conjunto de radios que indiquen la unidad de longitud destino</p>
+    <p>Al enviar los datos, deberá de aparecer en pantalla la longitud original con su unidad y la longitud final con su unidad. También deberá de aparecer una tabla con la conversión de la unidad original a el resto de todas las unidades</p>
+
+    <form action="PRACTICAR_soluciones.php" method="post">
+        <label>Cantidad: <input type="text" name="cantidad" required></label><br>
+        <label>Unidad de origen:
+            <select name="origen">
+                <option value="M">M - Metro</option>
+                <option value="KM">KM - Kilómetro</option>
+                <option value="MI">MI - Milla</option>
+                <option value="FT">FT - Pie</option>
+                <option value="IN">IN - Pulgada</option>
+            </select>
+        </label>
+        <fieldset>
+            <legend>Unidad de destino</legend>
+            <label><input type="radio" name="destino" value="M"> M - Metro</label>
+            <label><input type="radio" name="destino" value="KM"> KM - Kilómetro</label>
+            <label><input type="radio" name="destino" value="MI"> MI - Milla</label>
+            <label><input type="radio" name="destino" value="FT"> FT - Pie</label>
+            <label><input type="radio" name="destino" value="IN"> IN - Pulgada</label>
+        </fieldset>
+        <input type="submit" value="CONVERTIR">
+    </form>
+</body>
+</html>
