@@ -50,5 +50,22 @@
         <input type="text" name="notas" id=""><br>
         <input type="submit" value="ENVIAR">
     </form>
+
+
+    <form action="soluciones.php" method="post">
+        <input type="hidden" name="ejercicios" value="ej4">
+        <select name="columna" id="">
+            <option disabled selected>-- ELIGE UNA COLUMNA --</option>
+            <option value="0">ID</option>
+            <option value="1">NOMBRE</option>
+            <option value="2">NOMINA</option>
+        </select>
+        <select name="orden">
+            <option value="" disabled selected>-- ELIGE EL ORDEN --</option>
+            <option value="asc">ASCENDENTE</option>
+            <option value="desc">DESCENDENTE</option>
+        </select>
+        <input type="submit" value="ENVIAR">
+    </form>
 </body>
 </html>

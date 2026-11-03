@@ -137,21 +137,61 @@
         }
     }
 
+    if(isset($_POST["ejercicios"]) && $_POST["ejercicios"] == "ej4"){
+        if(isset($_POST["columna"]) && isset($_POST["orden"])){
 
-    //MATRIZ DEL EJERCICIO 4
-    $empleados = [
-        [1, "Yuseph Antoine", 2300],
-        [2, "Charles", 1300],
-        [3, "Piter", 700],
-        [4, "Eingel", 3000],
-        [5, "Pulpopol", 2000],
-        [6, "Emmanuel", 330],
-        [7, "Tomás", 5000],
-        [8, "Robert", 1900]
-    ];
+        //MATRIZ DEL EJERCICIO 4
+        $empleados = [
+            [1, "Yuseph Antoine", 2300],
+            [2, "Charles", 1300],
+            [3, "Piter", 700],
+            [4, "Eingel", 3000],
+            [5, "Pulpopol", 2000],
+            [6, "Emmanuel", 330],
+            [7, "Tomás", 5000],
+            [8, "Robert", 1900]
+        ];
+        $columna = $_POST["columna"];
+        $columna = array_column($empleados, $columna); 
+        
+        ($_POST["orden"] == "asc") ? $orden = SORT_ASC : $orden = SORT_DESC;
+        array_multisort($columna, $orden, $empleados);
+        ?>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>NÓMINA</th>
+            </tr>
+            <?php
+            foreach($empleados as $empleado){
+                echo "<tr>";
+                foreach($empleado as $datito){
+                    echo "<td>$datito</td>";
+                }
+                // list($id, $nombre, $nomina) = $empleado;
+                // echo "<td>$id</td>";
+                // echo "<td>$nombre</td>";
+                // echo "<td>$nomina</td>";
+
+                // echo "<td>".$empleado[0]."</td>";
+                // echo "<td>".$empleado[1]."</td>";
+                // echo "<td>".$empleado[2]."</td>";
+
+                echo "</tr>";
+            }
+            ?>
+        </table>
+
+        <?php
+            }else{
+            echo "<p style='color:red'>FALLO</p>";
+            //print_r($_SERVER);
+            echo "<a href='".$_SERVER["HTTP_REFERER"]."'>VOLVER PATRÁS</a>";
+            }
+        }
     }
-
-
     ?>
+
 </body>
 </html>
