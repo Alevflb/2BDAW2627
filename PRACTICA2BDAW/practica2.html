@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="soluciones.php" method="post">
+        <input type="hidden" name="ejercicios" value="ej1">
+        Peso (en Kg)<input type="text" name="peso" id=""><br>
+        Peso origen:
+        <select name="origen" id="">
+            <option value="tierra">Tierra</option>
+            <option value="luna">Luna</option>
+            <option value="marte">Marte</option>
+            <option value="jupiter">Júpiter</option>
+        </select>
+        <fieldset>
+            <legend>Peso destino</legend>
+            <input type="radio" name="destino" value="tierra"> Tierra 
+            <input type="radio" name="destino" value="luna"> Luna 
+            <input type="radio" name="destino" value="marte"> Marte
+            <input type="radio" name="destino" value="jupiter"> Júpiter
+        </fieldset>
+        <input type="submit" value="CALCULAR">
+    </form>
+    <br><br><br><br>
+    <hr>
+    <hr>
+    <hr>
+    <form action="soluciones.php" method="post">
+        <input type="hidden" name="ejercicios" value="ej2">
+        <select name="equipo" id="">
+            <option value="leones">Leon</option>
+            <option value="aguilas">Águila</option>
+            <option value="tiburones">Tiburón</option>
+        </select>
+        <input type="submit" value="ENVIAR">
+    </form>
+
+</body>
+</html>
